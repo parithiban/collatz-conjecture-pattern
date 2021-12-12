@@ -20,13 +20,12 @@ func main() {
 	fmt.Printf("Start: %s \n", time.Now().Format("2006-01-02 15:04:05.000"))
 
 	for i := 1; i < 100000000; i++ {
-		//Skipping the power of 2 numbers
+		//Skipping the power of 2 numbers as it will awlays end in 8,4,2,1
 		// if (i & (i - 1)) == 0 {
 		// 	continue
 		// }
 
 		_ = Collatz(i)
-		// fmt.Printf("Number: %d, Chain: %d \n", i, chain)
 	}
 
 	fmt.Printf("End %s \n", time.Now().Format("2006-01-02 15:04:05.000"))
