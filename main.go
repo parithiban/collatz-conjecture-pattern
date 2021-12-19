@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"runtime"
 	"sync"
 	"time"
 )
@@ -111,7 +110,7 @@ func main() {
 	result := make(chan *Consumer)
 	go ConsumeProcess(result)
 
-	InitWorkers(runtime.NumCPU())
+	InitWorkers(15)
 
 	longestChain := <-result
 
