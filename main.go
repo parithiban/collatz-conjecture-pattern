@@ -111,7 +111,8 @@ func main() {
 	result := make(chan *Consumer)
 	go ConsumeProcess(result)
 
-	InitWorkers(runtime.NumCPU())
+	workers := runtime.NumCPU()
+	InitWorkers(workers)
 
 	longestChain := <-result
 
