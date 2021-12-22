@@ -117,5 +117,5 @@ func main() {
 	longestChain := <-result
 
 	fmt.Printf("The longest chain is %d and the number is %d \n", longestChain.Chain, longestChain.Number)
-	fmt.Printf("Total Execution time  %d ms \n", time.Since(start).Milliseconds())
+	fmt.Printf("Total Execution time  %d ms \n", time.Since(start))
 }
