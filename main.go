@@ -82,11 +82,11 @@ func InitWorkers(workers int) {
 // SetUpProducers sets up the producers
 func SetUpProducers(input int) {
 	defer close(Producers)
-	dividend, remainder := input/1000, input%1000
+	dividend, remainder := input/100, input%100
 	i := 1
 	for i <= input {
 		start := i
-		if remainder != 0 && (i-1 == dividend*1000) {
+		if remainder != 0 && (i-1 == dividend*100) {
 			Producers <- Producer{start, i - 1 + remainder}
 			break
 		}
