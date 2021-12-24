@@ -42,7 +42,9 @@ func Collatz(n int, result *Consumer) *Consumer {
 }
 
 // ConsumeProcess consumes the results
-func ConsumeProcess(result chan *Consumer) {
+func ConsumeProcess(result chan *Consumer, m *sync.Mutex) {
+	m.Lock()
+	defer m.Unlock()
 	findInConsumers := new(Consumer)
 	for consume := range Consumers {
 		if consume.Chain > findInConsumers.Chain {
@@ -108,8 +110,13 @@ func main() {
 
 	start := time.Now()
 	go SetUpProducers(input)
+
+	var m sync.Mutex
 	result := make(chan *Consumer)
-	go ConsumeProcess(result)
+
+	for i := 0; i < 10; i++ {
+		go ConsumeProcess(result, &m)
+	}
 
 	workers := runtime.NumCPU()
 	InitWorkers(workers)
