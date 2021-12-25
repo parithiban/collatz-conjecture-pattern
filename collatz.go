@@ -1,4 +1,4 @@
-package collatzpattern
+package main
 
 import (
 	"fmt"
