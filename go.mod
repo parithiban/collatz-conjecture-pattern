@@ -1,3 +1,3 @@
-module github.com/parithiban/collatz
+module github.com/parithiban/collatzpattern
 
 go 1.15
