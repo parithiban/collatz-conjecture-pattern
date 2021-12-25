@@ -1,4 +1,4 @@
-package main
+package collatz
 
 import (
 	"fmt"
@@ -19,8 +19,8 @@ type Consumer struct {
 	Number int
 }
 
-var Producers = make(chan Producer, 20)
-var Consumers = make(chan Consumer, 20)
+var Producers = make(chan Producer, 50)
+var Consumers = make(chan Consumer, 50)
 
 // Collatz returns the number of steps required to reach 1 from the given number
 func Collatz(n int, result *Consumer) *Consumer {
@@ -28,7 +28,7 @@ func Collatz(n int, result *Consumer) *Consumer {
 	calculate := n
 	// internal := make(map[int]int)
 
-	for n != 4 {
+	for n != 4 && n >= calculate {
 		n = []int{n >> 1, 3*n + 1}[n&1]
 		chain++
 	}
