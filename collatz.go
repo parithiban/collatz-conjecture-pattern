@@ -1,4 +1,4 @@
-package collatz
+package main
 
 import (
 	"fmt"
@@ -26,9 +26,8 @@ var Consumers = make(chan Consumer, 50)
 func Collatz(n int, result *Consumer) *Consumer {
 	chain := 0
 	calculate := n
-	// internal := make(map[int]int)
 
-	for n != 4 && n >= calculate {
+	for n != 4 {
 		n = []int{n >> 1, 3*n + 1}[n&1]
 		chain++
 	}
