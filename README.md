@@ -15,8 +15,3 @@ Enter the number: 100000000
 The longest chain is 947 and the number is 63728127
 Total Execution time  6082 ms
 ```
-
-## Run as Docker
-```shell
-docker run -it parithiban/collatz
-```
