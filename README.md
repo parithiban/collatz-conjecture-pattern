@@ -1,5 +1,12 @@
-# collatz-conjecture-pattern-
-Collatz Conjecture Pattern 
+# Collatz Conjecture Pattern
+This is to calculate a sequence of numbers that follows the Collatz Conjecture.
+
+## Install & Execute
+
+```shell
+go install github.com/parithiban/collatzpattern@v1.0.0
+cd $GOPATH/bin && ./collatzpattern
+```
 
 ## Execution Time
 ```shell

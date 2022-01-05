@@ -27,9 +27,13 @@ func Collatz(n int, result *Consumer) *Consumer {
 	chain := 0
 	calculate := n
 
-	for n != 4 {
-		n = []int{n >> 1, 3*n + 1}[n&1]
-		chain++
+	for ; n != 4; chain++ {
+		switch n & 1 {
+		case 0:
+			n /= 2
+		default:
+			n = 3*n + 1
+		}
 	}
 
 	if chain > result.Chain {
